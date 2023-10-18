@@ -1,16 +1,16 @@
 #!/bin/bash
-#获取版本
-version=`curl -s https://dl.xanmod.org/check_x86-64_psabi.sh | awk -f - `
-version=`echo ${version: -1}`
+# 获取版本
+version=$(curl -s https://dl.xanmod.org/check_x86-64_psabi.sh | awk -f -)
+version=$(echo ${version: -1})
 wget -qO - https://dl.xanmod.org/archive.key | sudo gpg --dearmor -o /usr/share/keyrings/xanmod-archive-keyring.gpg
 
 echo 'deb [signed-by=/usr/share/keyrings/xanmod-archive-keyring.gpg] http://deb.xanmod.org releases main' | sudo tee /etc/apt/sources.list.d/xanmod-release.list
 
 apt update && apt install linux-xanmod-x64v$version
 
-# 设置 bbrv3 
+# 设置 bbrv3
 
-cat >> /etc/sysctl.conf << EOF
+cat >>/etc/sysctl.conf <<EOF
 
 net.core.default_qdisc=fq_pie
 
