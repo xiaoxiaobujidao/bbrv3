@@ -10,7 +10,7 @@ apt update && apt install linux-xanmod-x64v$version
 
 # 设置 bbrv3 
 
-cat > /etc/sysctl.conf << EOF
+cat >> /etc/sysctl.conf << EOF
 
 net.core.default_qdisc=fq_pie
 
