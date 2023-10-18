@@ -6,7 +6,7 @@ wget -qO - https://dl.xanmod.org/archive.key | sudo gpg --dearmor -o /usr/share/
 
 echo 'deb [signed-by=/usr/share/keyrings/xanmod-archive-keyring.gpg] http://deb.xanmod.org releases main' | sudo tee /etc/apt/sources.list.d/xanmod-release.list
 
-apt update && apt install linux-xanmod-x64v$version
+apt update && apt install -y linux-xanmod-x64v$version
 
 # 设置 bbrv3
 
