@@ -1,5 +1,7 @@
 #!/bin/bash
 # 获取版本
+apt update
+apt install gnupg wget curl mawk -y
 version=$(curl -s https://dl.xanmod.org/check_x86-64_psabi.sh | awk -f -)
 version=$(echo ${version: -1})
 wget -qO - https://dl.xanmod.org/archive.key | gpg --dearmor -o /usr/share/keyrings/xanmod-archive-keyring.gpg
